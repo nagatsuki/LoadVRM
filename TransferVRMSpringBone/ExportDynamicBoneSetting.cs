@@ -81,6 +81,10 @@ namespace VRM
 
                 exportData.m_Colliders = new List<string>();
                 foreach(DynamicBoneCollider collider in dynamicbone.m_Colliders){
+                    if(collider == null){
+                        continue;
+                    }
+
                     exportData.m_Colliders.Add(collider.name);
 
                     //コライダーのついているオブジェクトの名前を登録する（重複なし、なければ追加）
@@ -98,6 +102,10 @@ namespace VRM
                 if(dynamicbone.m_Exclusions != null){
                     
                     foreach(Transform exclusion in dynamicbone.m_Exclusions){
+                        if(exclusion == null){
+                            continue;
+                        }
+
                         exportData.m_Exclusions.Add(exclusion.name);
                     }
                 }
